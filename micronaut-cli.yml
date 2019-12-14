@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: com.pulgupta.demo
+---
+testFramework: junit
+sourceLanguage: java
