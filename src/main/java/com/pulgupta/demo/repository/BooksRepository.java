@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Singleton
 public class BooksRepository {
-    private Map<UUID, Book> books;
+    private Map<String, Book> books;
 
     public BooksRepository() {
         Book book1 = new Book();
@@ -27,7 +27,7 @@ public class BooksRepository {
         books.put(book2.getId(), book2);
     }
 
-    public Map<UUID, Book> getBooks() {
+    public Map<String, Book> getBooks() {
         return books;
     }
 }

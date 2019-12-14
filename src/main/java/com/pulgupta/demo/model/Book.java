@@ -3,16 +3,16 @@ package com.pulgupta.demo.model;
 import java.util.UUID;
 
 public class Book {
-    private UUID id;
+    private String id;
     private String name;
     private String author;
     private String category;
 
     public Book() {
-        id=UUID.randomUUID();
+        id=UUID.randomUUID().toString();
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
