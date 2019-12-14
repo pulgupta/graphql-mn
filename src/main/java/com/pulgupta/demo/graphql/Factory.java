@@ -23,15 +23,15 @@ public class Factory {
     @Singleton
     @Bean
     public GraphQL graphQL() {
+
         GraphQLSchemaGenerator schemaGenerator = new GraphQLSchemaGenerator();
         schemaGenerator.withBasePackages("com.pulgupta.demo");
         Collection resolvers = this.beanContext.getBeansOfType(Object.class, Qualifiers.byStereotype(DemoResolver.class));
 
         for(Object resolver: resolvers) {
+            /* Might have to check if the present class name contains $Intercepted. If yes then use its parent class before
+             binding it with schemaGenerator */
             Class resolverClass = resolver.getClass();
-            if(resolverClass.getSimpleName().contains("$Intercepted")) {
-                resolverClass = resolverClass.getSuperclass();
-            }
             schemaGenerator.withOperationsFromSingleton(resolver, resolverClass);
         }
 
