@@ -24,4 +24,8 @@ public class BookService {
         result.addAll(booksRepository.getBooks().values());
         return result;
     }
+
+    public void addBook(Book book) {
+        booksRepository.getBooks().put(book.getId(), book);
+    }
 }
